@@ -1,0 +1,157 @@
+body {
+    background: #2c2c2c
+}
+
+aside {
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+.logo_svg {
+    margin-left: -1em;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+aside ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+    transition: all .6s ease;
+    text-decoration: none;
+}
+
+aside ul li:hover, a:hover {
+    color: #00c3ff;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+}
+
+main .features {
+    float:left;
+    color: #fff;
+    margin-top: 10%;
+    text-align: center;
+    width: 80%;
+}
+
+main .features h1 {
+    fot-size 50px;
+}
+
+main features p {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.title_on_project_block {
+    font-weight: bold;
+}
+
+.project_title {
+    margin-top: -10%
+}
+
+.img_on_project_block {
+    width: 415px;
+    height: 270px;
+    position: relative
+    display: inline-block;
+    filter: brightness(40%)
+}
+
+.text_title_on_project_block{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    left: 25px;
+    color: #edf7f7;
+}
+
+.text_on_project_block{
+    color: #000;
+    font: 16px arial;
+    margin-top: 8px;
+}
+
+.btn-add {
+    margin-top: 20px;
+    transition: all .6s ease;
+}
+
+.btn-add:hover {
+    background: #44b78b;
+    border: none;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.alert {
+    float: left;
+    width: 450px;
+    margin: 14px;
+    margin-left: 34px;
+    margin-top: 25px;
+    text-align: left;
+    background: #fff
+}
+
+.img_on_project_block_on_page {
+    width: 415px;
+    height: 270px;
+    position: relative
+    display: inline-block;
+    filter: brightness(100%)
+}
+
+.myChart {
+    width: 600px;
+    height: 300px;
+    margin-left: 30%;
+    background: #fff;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.home_title {
+  font-family: 'Alfa Slab One', cursive;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: home_title 2s infinite;
+}
+@keyframes home_title {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-10px)
+  }
+}

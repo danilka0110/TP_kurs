@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавить населенный пункт{% endblock %}
+
+{% block content %}
+    <div class="features" style="width: 40%; margin-left: 19%; margin-top: 100px">
+        <h1 class="home_title" style="margin-bottom: 50px;">Добавить населенный пункт</h1>
+        <form method="post">
+            {% csrf_token %}<br>
+            {{ form.title }}<br>
+            {{ form.leader }}<br>
+            {{ form.number_of_inhabitants }}<br>
+            {{ form.budget }}<br>
+            {{ form.spending }}<br>
+            {{ form.deficit }}<br>
+            {{ form.img_link }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}

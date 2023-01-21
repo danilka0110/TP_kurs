@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Проект{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1 class="project_title">Населенные пункты:</h1>
+
+
+        {% if locs %}
+            {% for el in locs %}
+
+                <div class="alert">
+
+                    <img src="{{ el.img_link }}" alt="" class="img_on_project_block">
+                    <h3 class="text_title_on_project_block">{{ el.title }}</h3>
+                    <p class="text_on_project_block"><span class="title_on_project_block">Глава:</span> {{ el.leader }}</p>
+                    <p class="text_on_project_block"><span class="title_on_project_block">Население:</span> {{ el.number_of_inhabitants }}</p>
+                    <p class="text_on_project_block"><span class="title_on_project_block">Бюджет:</span> {{ el.budget }}</p>
+                    <p class="text_on_project_block"><span class="title_on_project_block">Расходы:</span> {{ el.spending }}</p>
+
+                    <a href="{% url 'locs-detail' el.id %}" class="btn btn-info">Подробнее</a>
+
+                </div>
+
+            {% endfor %}
+
+
+
+
+        {% else %}
+            <h2>БД пуста!!!</h2>
+        {% endif %}
+    </div>
+
+{% endblock %}

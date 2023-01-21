@@ -1,0 +1,100 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ loc.title }}{% endblock %}
+
+{% block content %}
+    <div class="features" style="margin-top: 2%">
+
+        <img src="{{ loc.img_link }}" alt="" class="img_on_project_block_on_page">
+        <h3 class="">{{ loc.title }}</h3>
+        <p class=""><span class="">Глава:</span> {{ loc.leader }}</p>
+        <p class=""><span class="">Население:</span> {{ loc.number_of_inhabitants }}</p>
+        <p class=""><span class="">Бюджет:</span> <span class="budget">{{ loc.budget }} </span></p>
+        <p class=""><span class="">Расходы:</span> <span class="spending">{{ loc.spending }}</span></p>
+
+
+        <script type="text/javascript">
+
+            let budgetSTR = $(".budget").text();
+            let spendingSTR = $(".spending").text();
+            budget = parseInt(budgetSTR);
+            spending = parseInt(spendingSTR);
+            let surplus = 0;
+            let deficit = 0;
+
+            if (budget > spending) surplus = budget-spending
+            if (budget < spending) deficit = spending-budget
+
+            let data_for_chart = new Array();
+            data_for_chart = [budget, spending];
+            console.log(data_for_chart);
+
+        </script>
+
+        {% if loc.budget > loc.spending %}
+
+        <p class="">
+            <span class="">Профицит:</span>
+            <span>
+                <script type="text/javascript">document.writeln(surplus)</script>
+            </span>
+        </p>
+
+        {% else %}
+
+        <p class="">
+            <span class="">Дефицит:</span>
+            <span>
+                <script type="text/javascript">document.writeln(deficit)</script>
+            </span>
+        </p>
+
+        {% endif %}
+
+        <a href="{% url 'locs-update' loc.id %}" class="btn btn-warning">Редактировать</a>
+        <a href="{% url 'locs-delete' loc.id %}" class="btn btn-danger">Удалить</a>
+        <br><br>
+
+
+        <div class="myChart">
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+          const ctx = document.getElementById('myChart');
+
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['budget', 'spending'],
+              datasets: [{
+                label: 'budget and spending on charts',
+                data: data_for_chart,
+                borderWidth: 1
+              }, {
+                type: 'line',
+                label: 'Line Dataset',
+                data: [budget, spending],
+                fill: false,
+
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        </script>
+
+
+
+
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <div class="features">
+        <h1 class="home_title">{{ title }}</h1>
+
+        <p>Тема проекта:</p>
+        <p>Населенные пункты (название, глава, население, бюджет, расходы, дефицит / профицит).</p>
+        <a class="btn btn-info" href="{% url 'project' %}">К проекту!</a>
+    </div>
+
+{% endblock %}

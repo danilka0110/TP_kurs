@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удаление населенного пункта{% endblock %}
+
+{% block content %}
+    <div class="features" style="width: 40%; margin-left: 19%; margin-top: 100px">
+        <h1 class="home_title" style="margin-bottom: 50px;">Удаление населенного пункта</h1>
+        <form method="post">
+            {% csrf_token %}<br>
+            <button class="btn btn-danger" type="submit">Удалить</button>
+        </form>
+    </div>
+{% endblock %}
