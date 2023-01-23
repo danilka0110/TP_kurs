@@ -9,12 +9,9 @@ def index(request):
 def contacts(request):
     return render(request, 'main/contacts.html', {'title': 'Контакты'})
 
-
 def project(request):
         locs = Localities.objects.order_by('title')
-
         return render(request, 'main/project.html', {'locs': locs})
-
 
 class LocsDetailView(DetailView):
     model = Localities
@@ -24,7 +21,6 @@ class LocsDetailView(DetailView):
 class LocsUpdateView(UpdateView):
     model = Localities
     template_name = 'main/create.html'
-
     form_class = LocalitiesForm
 
 class LocsDeleteView(DeleteView):
@@ -33,7 +29,7 @@ class LocsDeleteView(DeleteView):
     template_name = 'main/locs-delete.html'
 
 def create(request):
-    error =''
+    error = ''
     if request.method == 'POST':
         form = LocalitiesForm(request.POST)
         if form.is_valid():
@@ -41,13 +37,9 @@ def create(request):
             return redirect('project')
         else:
             error = 'Форма заполнена неверно!!!'
-
-
     form = LocalitiesForm()
-
     data = {
         'form': form,
         'error': error
     }
-
     return render(request, 'main/create.html', data)

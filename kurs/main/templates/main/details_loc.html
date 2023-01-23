@@ -15,12 +15,11 @@
 
         <script type="text/javascript">
 
-            let budgetSTR = $(".budget").text();
-            let spendingSTR = $(".spending").text();
-            budget = parseInt(budgetSTR);
-            spending = parseInt(spendingSTR);
-            let surplus = 0;
-            let deficit = 0;
+
+            let budget = parseInt($(".budget").text());
+            let spending = parseInt($(".spending").text())
+
+            let surplus, deficit = 0;
 
             if (budget > spending) surplus = budget-spending
             if (budget < spending) deficit = spending-budget
@@ -28,6 +27,7 @@
             let data_for_chart = new Array();
             data_for_chart = [budget, spending];
             console.log(data_for_chart);
+
 
         </script>
 
